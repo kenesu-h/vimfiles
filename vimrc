@@ -29,16 +29,12 @@ set spell
 set spelllang=en_us
 
 
-"" Mappings
-" Resets search result highlighting by hitting enter.
-nnoremap <CR> :noh<CR><CR>
-
-
 "" Plugins
 "  I use vim-plug to manage plugins. You should use vim-plug.sh to install it on your machine if you
 "  haven't already.
 "
 " 'sonokai'                         The main theme I use. Can be swapped out for your preference.
+" 'vim-startify'                    Provides a start screen for Vim. Handy for reloading sessions.
 " 'indentLine'                      Shows a '|' character to represent indent levels using spaces.
 " 'vim-airline'                     A status bar for Vim that works with many plugins.
 " 'nerdtree'                        Integrates (effectively) a file browser.
@@ -46,11 +42,12 @@ nnoremap <CR> :noh<CR><CR>
 " 'vim-fugitive'                    Integrates Git commands, and shows current branch in airline.
 " 'vim-gitgutter'                   Provides indicators for Git changes.
 " 'vimcompletesme'                  A lightweight auto-complete plugin.
-" A bunch of Rust plugins           A series of plugins for Rust and Cargo integration.
+" A bunch of language plugins       A series of plugins for language servers, and Rust integration.
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'sainnhe/sonokai'
+Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
@@ -70,18 +67,33 @@ call plug#end()
 
 
 "" Color Scheme
-
 " Regardless of what your color scheme is, this is probably important.
 if has('termguicolors')
   set termguicolors
 endif
 
 " Since these have to do with sonokai though, you can change these if needed.
-let g:sonokai_style = 'andromeda'
+let g:sonokai_style = 'shusia'
 let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 1
 
 colorscheme sonokai
+
+"" Startify
+let g:startify_bookmarks = ['~/.vim/vimrc']
+
+
+"" Automatic
+" Resize all windows back to equal proportions if Vim is resized.
+autocmd VimResized * wincmd =
+
+
+"" Mappings
+" Resets search result highlighting by hitting enter.
+nnoremap <CR> :noh<CR><CR>
+
+" Opens nerdtree when Q is pressed.
+nmap <C-Q> :NERDTreeTabsToggle<CR>
 
 
 "" Language-Exclusive
@@ -96,12 +108,3 @@ if executable('rls')
         \ 'whitelist': ['rust'],
         \ })
 endif 
-
-
-"" Automatic
-
-" Resize all windows back to equal proportions if Vim is resized.
-autocmd VimResized * wincmd =
-
-" Start nerdtree on console startup.
-let g:nerdtree_tabs_open_on_console_startup = 1
