@@ -1,4 +1,4 @@
-"" General
+"" GENERAL
 set ff=unix                       " Use Unix line endings for files.
 set encoding=utf-8                " Use UTF-8 encoding for files.
 set textwidth=100                 " Poses a soft character limit per line to 100 characters.
@@ -29,20 +29,27 @@ set spell
 set spelllang=en_us
 
 
-"" Plugins
+"" PLUGINS
 "  I use vim-plug to manage plugins. You should use vim-plug.sh to install it on your machine if you
 "  haven't already.
+"
+"  NOTE: -> denotes that this plugin has a dependency on its parent.
 "
 " 'sonokai'                         The main theme I use. Can be swapped out for your preference.
 " 'vim-startify'                    Provides a start screen for Vim. Handy for reloading sessions.
 " 'indentLine'                      Shows a '|' character to represent indent levels using spaces.
 " 'vim-airline'                     A status bar for Vim that works with many plugins.
 " 'nerdtree'                        Integrates (effectively) a file browser.
-" 'vim-nerdtree-tabs'               An addon to nerdtree where nerdtree becomes its own window.
+" -> 'vim-nerdtree-tabs'               An addon to nerdtree where nerdtree becomes its own window.
 " 'vim-fugitive'                    Integrates Git commands, and shows current branch in airline.
 " 'vim-gitgutter'                   Provides indicators for Git changes.
-" 'vimcompletesme'                  A lightweight auto-complete plugin.
-" A bunch of language plugins       A series of plugins for language servers, and Rust integration.
+" 'async.vim'                       An asynchronous job control API for Vim.
+" 'vim-lsp'                         An asynchronous LSP (language server protocol) plugin for Vim.
+" -> 'vim-lsp-settings'                Automatically configures language servers for vim-lsp.
+" 'asyncomplete.vim'                An asynchronous auto-completion plugin for Vim.
+" -> 'asyncomplete-lsp.vim'            Adds auto-completion for asynccomplete.vim and vim-lsp.
+"
+" 'rust.vim'                        Provides Rust support for Vim. 
 
 call plug#begin('~/.vim/plugged')
 
@@ -54,19 +61,20 @@ Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'ajh17/vimcompletesme'
-
-Plug 'rust-lang/rust.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 
-"" Color Scheme
+"" COLOR SCHEME
+"  Settings related to color schemes.
+
 " Regardless of what your color scheme is, this is probably important.
 if has('termguicolors')
   set termguicolors
@@ -79,26 +87,50 @@ let g:sonokai_disable_italic_comment = 1
 
 colorscheme sonokai
 
-"" Startify
+"" BOOKMARKS
+"  Bookmarks for the vim-startify plugin.
+
+" Adds this vimrc to startify's bookmarks.
 let g:startify_bookmarks = ['~/.vim/vimrc']
 
 
-"" Automatic
+"" MAPPINGS
+"  Custom keyboard mappings for various commands or a combination of such.
+
+" Enter - Resets search result highlighting.
+nnoremap <CR> :noh<CR><CR>
+
+" F1 - nerdtree
+nnoremap <F1> :NERDTreeTabsToggle<CR>
+
+" F2 - LSP warning/error summary
+nnoremap <F2> :LspDocumentDiagnostics<CR>
+
+" Tab Completion for asyncomplete.vim
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
+
+
+"" AUTOMATIC
+"  Commands that will be executed automatically on specific events, such as window resizing.
+
 " Resize all windows back to equal proportions if Vim is resized.
 autocmd VimResized * wincmd =
 
 
-"" Mappings
-" Resets search result highlighting by hitting enter.
-nnoremap <CR> :noh<CR><CR>
 
-" Opens nerdtree when Q is pressed.
-nmap <C-Q> :NERDTreeTabsToggle<CR>
+"" LANGUAGES
+"  Settings exclusive to languages and language servers.
+
+" Display LSP server errors in airline.
+let g:lsp_diagnostics_echo_cursor = 1
 
 
-"" Language-Exclusive
-let g:rust_recommended_style = 0  " Prevents Vim from adhering to the style of 4-space tabs.
-let g:lsp_diagnostics_echo_cursor = 1  " When hovering over a Rust error, it's displayed under airline.
+" RUST
+
+" Prevents Vim from adhering to the style of 4-space tabs.
+let g:rust_recommended_style = 0
 
 " Registers RLS (Rust Language Server) with vim-lsp.
 if executable('rls')
