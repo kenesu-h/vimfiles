@@ -41,6 +41,7 @@ set spelllang=en_us
 " 'vim-airline'                     A status bar for Vim that works with many plugins.
 " 'nerdtree'                        Integrates (effectively) a file browser.
 " -> 'vim-nerdtree-tabs'               An addon to nerdtree where nerdtree becomes its own window.
+" 'tagbar'                          Provides a sidebar that outlines the current file with tags.
 " 'vim-fugitive'                    Integrates Git commands, and shows current branch in airline.
 " 'vim-gitgutter'                   Provides indicators for Git changes.
 " 'async.vim'                       An asynchronous job control API for Vim.
@@ -53,12 +54,13 @@ set spelllang=en_us
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'sainnhe/sonokai'
+Plug 'tomasr/molokai'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'preservim/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'prabirshrestha/async.vim'
@@ -80,12 +82,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
-" Since these have to do with sonokai though, you can change these if needed.
-let g:sonokai_style = 'shusia'
-let g:sonokai_enable_italic = 0
-let g:sonokai_disable_italic_comment = 1
-
-colorscheme sonokai
+colorscheme molokai
 
 "" BOOKMARKS
 "  Bookmarks for the vim-startify plugin.
@@ -103,8 +100,11 @@ nnoremap <CR> :noh<CR><CR>
 " F1 - nerdtree
 nnoremap <F1> :NERDTreeTabsToggle<CR>
 
-" F2 - LSP warning/error summary
-nnoremap <F2> :LspDocumentDiagnostics<CR>
+" F2 - tagbar
+nnoremap <F2> :TagbarToggle<CR>
+
+" F3 - LSP warning/error summary
+nnoremap <F3> :LspDocumentDiagnostics<CR>
 
 " Tab Completion for asyncomplete.vim
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -118,6 +118,10 @@ inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr
 " Resize all windows back to equal proportions if Vim is resized.
 autocmd VimResized * wincmd =
 
+
+"" NERDTREE
+"  Settings exclusive to NERDTree
+let NERDTreeShowHidden=1
 
 
 "" LANGUAGES
