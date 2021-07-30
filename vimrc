@@ -1,26 +1,28 @@
 "" GENERAL
+set shell=/bin/bash
 set ff=unix                       " Use Unix line endings for files.
 set encoding=utf-8                " Use UTF-8 encoding for files.
-set textwidth=100                 " Poses a soft character limit per line to 100 characters.
+set textwidth=80                  " Poses a hard text width of 80 characters.
+set colorcolumn=80                " Shows a word-wrap column at 80 characters.
 
 set expandtab                     " Turns tabs into spaces.
-set shiftwidth=2                  " Indent levels will be equivalent to 2 spaces.
-set tabstop=2                     " Tab indents will be equivalent to 2 spaces.
-set breakindent                   " Ensures word-wrap indents are the same as the previous line.
+set shiftwidth=2                  " Indent levels are equivalent to 2 spaces.
+set tabstop=2                     " Tab indents are equivalent to 2 spaces.
+set breakindent                   " Word-wrap indents match the previous line.
+set lbr                           " Prevents word-wrap from splitting words.
 
-" The two settings below collectively ensure that word-wrap doesn't split words.
-set formatoptions=tl
-set lbr
+set formatoptions=tln
+set formatlistpat=^\\s*[\\-\\+\\*]\\+\\s\\+
 
-set splitbelow                    " Any new windows will be split below existing ones.
-set visualbell                    " Enables a visual bell to show errors instead of beeping.
+set splitbelow                    " Any new windows will be split below.
+set visualbell                    " Enables a visual bell to show errors.
 
 set showtabline=2                 " Always show active tabs.
 set number                        " Enables line numbers.
 set showmatch                     " Highlights matching braces.
 set hlsearch                      " Highlights search results.
 set clipboard+=unnamed            " Enables pasting from the system clipboard.
-set backspace=indent,eol,start    " Enables backspacing like a normal text editor.
+set backspace=indent,eol,start    " Enables backspacing like most text editors.
 syntax enable                     " Enables syntax highlighting.
 filetype plugin indent on
 
@@ -30,31 +32,13 @@ set spelllang=en_us
 
 
 "" PLUGINS
-"  I use vim-plug to manage plugins. You should use vim-plug.sh to install it on your machine if you
-"  haven't already.
-"
-"  NOTE: -> denotes that this plugin has a dependency on its parent.
-"
-" 'sonokai'                         The main theme I use. Can be swapped out for your preference.
-" 'vim-startify'                    Provides a start screen for Vim. Handy for reloading sessions.
-" 'indentLine'                      Shows a '|' character to represent indent levels using spaces.
-" 'vim-airline'                     A status bar for Vim that works with many plugins.
-" 'nerdtree'                        Integrates (effectively) a file browser.
-" -> 'vim-nerdtree-tabs'               An addon to nerdtree where nerdtree becomes its own window.
-" 'tagbar'                          Provides a sidebar that outlines the current file with tags.
-" 'vim-fugitive'                    Integrates Git commands, and shows current branch in airline.
-" 'vim-gitgutter'                   Provides indicators for Git changes.
-" 'async.vim'                       An asynchronous job control API for Vim.
-" 'vim-lsp'                         An asynchronous LSP (language server protocol) plugin for Vim.
-" -> 'vim-lsp-settings'                Automatically configures language servers for vim-lsp.
-" 'asyncomplete.vim'                An asynchronous auto-completion plugin for Vim.
-" -> 'asyncomplete-lsp.vim'            Adds auto-completion for asynccomplete.vim and vim-lsp.
-"
-" 'rust.vim'                        Provides Rust support for Vim. 
+"  I use vim-plug to manage plugins. You should use vim-plug.sh to install it on
+"  your machine if you haven't already.
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'tomasr/molokai'
+
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
@@ -113,7 +97,7 @@ inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr
 
 
 "" AUTOMATIC
-"  Commands that will be executed automatically on specific events, such as window resizing.
+"  Commands that will be executed automatically on specific events.
 
 " Resize all windows back to equal proportions if Vim is resized.
 autocmd VimResized * wincmd =
