@@ -81,14 +81,17 @@ let g:startify_bookmarks = ['~/.vim/vimrc']
 " Enter - Resets search result highlighting.
 nnoremap <CR> :noh<CR><CR>
 
-" F1 - nerdtree
-nnoremap <F1> :NERDTreeTabsToggle<CR>
+" ;n - nerdtree
+nnoremap ;n :NERDTreeTabsToggle<CR>
 
-" F2 - tagbar
-nnoremap <F2> :TagbarToggle<CR>
+" ;t - tagbar
+nnoremap ;t :TagbarToggle<CR>
 
-" F3 - LSP warning/error summary
-nnoremap <F3> :LspDocumentDiagnostics<CR>
+" ;e - LSP warning/error summary
+nnoremap ;e :LspDocumentDiagnostics<CR>
+
+" ;g - fugitive
+nnoremap ;g :Git<CR>
 
 " Tab Completion for asyncomplete.vim
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -119,6 +122,14 @@ let g:lsp_diagnostics_echo_cursor = 1
 
 " Prevents Vim from adhering to the style of 4-space tabs.
 let g:rust_recommended_style = 0
+
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
 
 " Registers RLS (Rust Language Server) with vim-lsp.
 if executable('rls')
