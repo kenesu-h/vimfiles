@@ -1,8 +1,5 @@
 " $HOME/.vim/init/general.vimrc
 
-filetype plugin on                " Load plugin scripts for current filetypes.
-" filetype plugin indent on
-
 set ff=unix                       " Use Unix line endings for files.
 set encoding=utf-8                " Use UTF-8 encoding for files.
 set textwidth=80                  " Poses a hard text width of 80 characters.
@@ -44,4 +41,3 @@ if has('termguicolors')
 endif
 
 colorscheme gruvbox-material
-" hi Normal guibg=#252834 ctermbg=234
