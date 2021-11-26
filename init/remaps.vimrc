@@ -1,20 +1,20 @@
-tnoremap <Esc> <C-\><C-n>
 " Escape will allow you to return to NORMAL mode in TERMINAL mode.
+tnoremap <Esc> <C-\><C-n>
 
-nnoremap <CR> :noh<CR><CR>
 " Resets search result highlighting.
+nnoremap <CR> :noh<CR><CR>
 
-nnoremap ;n :Fern %:h -drawer -toggle<CR>
 " n for NERDTree (or at least, originally NERDTree). Actually toggles fern.vim.
+nnoremap ;n :Fern %:h -drawer -toggle<CR>
 
-nnoremap ;term :split<CR> :term<CR>
 " term for opening a terminal, but opens it in a split.
+nnoremap ;T :split <bar> :term<CR>
 
-nnoremap ;tag :TagbarToggle<CR>
 " tag for toggling Tagbar.
+nnoremap ;t :TagbarToggle<CR>
 
-nnoremap ;u :UndotreeToggle<CR>
 " u for toggling Undotree.
+nnoremap ;u :UndotreeToggle<CR>
 
 " Tab Completion for asyncomplete.vim
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
