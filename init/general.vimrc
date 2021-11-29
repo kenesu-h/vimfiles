@@ -5,6 +5,7 @@ set encoding=utf-8                " Use UTF-8 encoding for files.
 set textwidth=80                  " Poses a hard text width of 80 characters.
 set colorcolumn=80                " Shows a word-wrap column at 80 characters.
 set fillchars+=vert:\ 
+set signcolumn="yes"
 
 set expandtab                     " Indents are always spaces.
 set shiftwidth=2                  " Indent levels are equivalent to 2 spaces.
