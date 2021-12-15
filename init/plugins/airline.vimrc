@@ -1,6 +1,6 @@
 " $HOME/.vim/init/plugins/airline.vimrc
 
-let g:airline_theme='gruvbox_material'
+let g:airline_theme='srcery'
 
 " Enables Powerline characters.
 let g:airline_powerline_fonts = 1

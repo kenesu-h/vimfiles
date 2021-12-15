@@ -16,6 +16,8 @@ nnoremap ;t :TagbarToggle<CR>
 " u for toggling Undotree.
 nnoremap ;u :UndotreeToggle<CR>
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " Tab Completion for asyncomplete.vim
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

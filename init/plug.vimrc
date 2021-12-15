@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'sainnhe/gruvbox-material'
+Plug 'srcery-colors/srcery-vim'
 
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'

@@ -4,7 +4,7 @@ set ff=unix                       " Use Unix line endings for files.
 set encoding=utf-8                " Use UTF-8 encoding for files.
 set textwidth=80                  " Poses a hard text width of 80 characters.
 set colorcolumn=80                " Shows a word-wrap column at 80 characters.
-set fillchars+=vert:\ 
+set fillchars+=vert:\|
 set signcolumn=yes
 
 set expandtab                     " Indents are always spaces.
@@ -40,5 +40,3 @@ set splitbelow                    " New windows default to a new pane below.
 if has('termguicolors')
   set termguicolors
 endif
-
-colorscheme gruvbox-material
