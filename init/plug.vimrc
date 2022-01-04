@@ -6,6 +6,12 @@ Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'sainnhe/gruvbox-material'
 Plug 'srcery-colors/srcery-vim'
 
+Plug 'ryanoasis/vim-devicons' " Icons without colours
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'akinsho/bufferline.nvim'
+Plug 'lambdalisue/fern-renderer-devicons.vim'
+
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
