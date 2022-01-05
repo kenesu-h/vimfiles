@@ -7,10 +7,9 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'srcery-colors/srcery-vim'
 
 Plug 'ryanoasis/vim-devicons' " Icons without colours
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'lambdalisue/glyph-palette.vim'
-Plug 'akinsho/bufferline.nvim'
-Plug 'lambdalisue/fern-renderer-devicons.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'

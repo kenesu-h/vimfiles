@@ -15,6 +15,7 @@ set lbr                           " Prevents word-wrap from splitting words.
 
 syntax enable                     " Enable syntax highlighting.
 set number                        " Enables line numbers.
+set mouse=a
 
 set showtabline=2                 " Always show active tabs.
 set clipboard+=unnamed            " Enables pasting from the system clipboard.
