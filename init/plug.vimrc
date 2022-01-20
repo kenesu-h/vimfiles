@@ -19,12 +19,10 @@ Plug 'lambdalisue/fern-git-status.vim'
 Plug 'preservim/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'lervag/vimtex'
 
 " Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/vim-lsp'
