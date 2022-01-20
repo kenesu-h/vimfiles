@@ -24,12 +24,4 @@ Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'lervag/vimtex'
 
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-" Plug 'mattn/vim-lsp-settings'
-" Plug 'prabirshrestha/asyncomplete.vim'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-" Plug 'rust-lang/rust.vim'
-
 call plug#end()
