@@ -1,5 +1,8 @@
 " $HOME/.vim/init/general.vimrc
 
+set background=dark
+set laststatus=2
+set noshowmode
 set ff=unix                       " Use Unix line endings for files.
 set encoding=utf-8                " Use UTF-8 encoding for files.
 set textwidth=80                  " Poses a hard text width of 80 characters.
@@ -36,8 +39,3 @@ set formatoptions=tln
 " set formatlistpat=^\\s*[\\-\\+\\*]\\+\\s\\+
 
 set splitbelow                    " New windows default to a new pane below.
-
-" Regardless of what your color scheme is, this is probably important.
-if has('termguicolors')
-  set termguicolors
-endif

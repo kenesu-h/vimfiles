@@ -8,15 +8,12 @@ nnoremap <CR> :noh<CR><CR>
 nnoremap ;n :Fern %:h -drawer -toggle<CR>
 
 " term for opening a terminal, but opens it in a split.
-nnoremap ;T :split <bar> :term<CR>
+nnoremap ;t :term<CR>
 
 " tag for toggling Tagbar.
-nnoremap ;t :TagbarToggle<CR>
+nnoremap ;e :CocDiagnostics<CR>
 
-" u for toggling Undotree.
-nnoremap ;u :UndotreeToggle<CR>
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nnoremap ;g :Git<CR>
 
 " Tab Completion for asyncomplete.vim
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
