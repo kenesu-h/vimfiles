@@ -19,3 +19,12 @@ nnoremap ;g :Git<CR>
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
+
+" Snippet below thanks to https://superuser.com/a/321726
+" delete without yanking
+nnoremap ;d "_d
+vnoremap ;d "_d
+
+" replace currently selected text with default register
+" without yanking it
+vnoremap ;p "_dP

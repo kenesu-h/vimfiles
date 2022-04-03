@@ -30,11 +30,9 @@ set spelllang=en_us               " Spell-checking checks for US English.
 set showmatch                     " Highlights matching braces.
 set hlsearch                      " Highlights search results.
 
-set formatoptions=tln
-" Does the following (cited from vimdoc):
-" - t: Auto-wrap text using textwidth.
-" - l: Long lines are not broken in insert mode.
-" - n: When formatting text, recognize numbered lists.
+" Recognize numbered lists when formatting, and only auto-format comments.
+autocmd FileType * set formatoptions=nc
+
 
 " set formatlistpat=^\\s*[\\-\\+\\*]\\+\\s\\+
 
