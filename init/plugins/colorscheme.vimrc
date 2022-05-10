@@ -1,6 +1,8 @@
-" $HOME/.vim/init/plugins/srcery.vimrc
+" $HOME/.vim/init/plugins/colorscheme.vimrc
 
-" let g:srcery_italic = 0
 set termguicolors
 
-colorscheme srcery
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight

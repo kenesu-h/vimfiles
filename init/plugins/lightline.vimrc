@@ -1,4 +1,5 @@
 let g:lightline = {
+  \ 'colorscheme': 'tokyonight',
   \ 'active': {
   \   'left': [ 
   \     [ 'mode', 'paste' ],
@@ -16,7 +17,7 @@ let g:lightline = {
   \   'gitbranch': 'FugitiveHead',
   \   'mylineinfo': 'MyLineInfo'
   \ },
-  \ }
+\ }
 
 function MyLineInfo() abort
   return line('.') . '/' . line('$') . ' ln : ' . virtcol('.')
