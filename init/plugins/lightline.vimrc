@@ -17,6 +17,8 @@ let g:lightline = {
   \   'gitbranch': 'FugitiveHead',
   \   'mylineinfo': 'MyLineInfo'
   \ },
+  \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+  \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
 \ }
 
 function MyLineInfo() abort

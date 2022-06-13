@@ -1,3 +1,5 @@
+let mapleader = " "
+
 " Escape will allow you to return to NORMAL mode in TERMINAL mode.
 tnoremap <Esc> <C-\><C-n>
 
@@ -5,15 +7,15 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <CR> :noh<CR><CR>
 
 " n for NERDTree (or at least, originally NERDTree). Actually toggles fern.vim.
-nnoremap ;n :Fern %:h -drawer -toggle<CR>
+nnoremap <leader>n :Fern %:h -drawer -toggle<CR>
 
 " term for opening a terminal, but opens it in a split.
-nnoremap ;t :term<CR>
+nnoremap <leader>t :term<CR>
 
 " tag for toggling Tagbar.
-nnoremap ;e :CocDiagnostics<CR>
+nnoremap <leader>e :CocDiagnostics<CR>
 
-nnoremap ;g :Git<CR>
+nnoremap <leader>g :Git<CR>
 
 " Tab Completion for asyncomplete.vim
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -22,9 +24,14 @@ nnoremap ;g :Git<CR>
 
 " Snippet below thanks to https://superuser.com/a/321726
 " delete without yanking
-nnoremap ;d "_d
-vnoremap ;d "_d
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 
 " replace currently selected text with default register
 " without yanking it
-vnoremap ;p "_dP
+vnoremap <leader>p "_dP
+
+" https://vi.stackexchange.com/a/10424
+" hardwraptoggle
+command HardWrapToggle if &fo =~ 't' | set fo-=t | else | set fo+=t | endif
+nnoremap <leader>i :HardWrapToggle<CR>
