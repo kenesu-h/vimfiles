@@ -1,6 +1,0 @@
-{
-  "rust-analyzer.cargo.runBuildScripts": true,
-  "java.project.referencedLibraries": [
-    "/mnt/c/Users/Kenneth/Documents/Development/Jarfiles/tester.jar"
-  ]
-}

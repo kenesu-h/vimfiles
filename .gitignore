@@ -2,3 +2,4 @@ autoload/
 plugged/
 session/
 *.swp
+.netrwhist
